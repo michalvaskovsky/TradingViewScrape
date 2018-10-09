@@ -92,8 +92,7 @@ class TradingView:
     #      0         1         2           3            4           5        6         7          8            9           10
     # trade_id, type_open, signal_open, time_open, price_open, contracts, profit,  type_close, signal_close, time_close, price_close
     def parseTrades(self, data):
-#        try:
-        if True:
+        try:
             soup = BeautifulSoup(data, "lxml")
             bodies = soup.find("table").find_all("tbody")
 
@@ -124,9 +123,9 @@ class TradingView:
             th = TimeHelper()
             return th.sortArrayByDateEx(tmp1, 3)
 
-#        except Exception as e:
-#            print(e.message)
-#            return None
+        except Exception as e:
+            print(e.message)
+            return None
 
 def twmain():
     tw_url = CHART_URL
