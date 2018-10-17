@@ -44,12 +44,13 @@ class TradingView:
             d.get(self.urltrade)
 
             # click strategy tester button
+            xpath = '//*/div[@data-name="backtesting"]'
             e = WebDriverWait(d, self.wait).until(
-                EC.visibility_of_element_located((By.XPATH, '//*[@id="footer-chart-panel"]/div[2]/span[3]/span')))
+                EC.visibility_of_element_located((By.XPATH, xpath)))
             e.click()
 
             # click list of trades button
-            xpath = '//*[@id="bottom-area"]/div[3]/div[1]/div[2]/ul/li[3]'
+            xpath = '//*/ul[@class="report-tabs"]/li[3]'
             ClickWaitByXpath(d, xpath, self.wait)
 
             # wait for trades table
